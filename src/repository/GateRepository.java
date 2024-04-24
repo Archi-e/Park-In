@@ -12,7 +12,7 @@ public class GateRepository {
         GateHashMap = new HashMap<>();
     }
 
-    private Gate get(int id){
+    public Gate get(int id){
         if(GateHashMap.containsKey(id)){
             return GateHashMap.get(id);
         }
@@ -21,7 +21,7 @@ public class GateRepository {
         }
     }
 
-    private Gate put( Gate gate){
+    public Gate put( Gate gate){
         GateHashMap.put(idCounter++ , gate);
         return gate;
     }

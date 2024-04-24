@@ -14,4 +14,59 @@ public class ParkingLot extends BaseModel{
     private SpotAllocationStrategy spotAllocationStrategy;
     private BillCalculationStrategy billCalculationStrategy;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<ParkingFloor> getParkingFloorList() {
+        return parkingFloorList;
+    }
+
+    public void setParkingFloorList(List<ParkingFloor> parkingFloorList) {
+        this.parkingFloorList = parkingFloorList;
+    }
+
+    public List<ParkingSpot> getParkingSpotList() {
+        return parkingSpotList;
+    }
+
+    public void setParkingSpotList(List<ParkingSpot> parkingSpotList) {
+        this.parkingSpotList = parkingSpotList;
+    }
+
+    public SpotAllocationStrategy getSpotAllocationStrategy() {
+        return spotAllocationStrategy;
+    }
+
+    public void setSpotAllocationStrategy(SpotAllocationStrategy spotAllocationStrategy) {
+        this.spotAllocationStrategy = spotAllocationStrategy;
+    }
+
+    public BillCalculationStrategy getBillCalculationStrategy() {
+        return billCalculationStrategy;
+    }
+
+    public void setBillCalculationStrategy(BillCalculationStrategy billCalculationStrategy) {
+        this.billCalculationStrategy = billCalculationStrategy;
+    }
 }

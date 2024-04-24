@@ -10,11 +10,11 @@ public class TicketRepository {
         TicketHashMap = new HashMap<>();
     }
 
-    private Ticket get(int id){
+    public Ticket get(int id){
         return TicketHashMap.get(id);
     }
 
-    private Ticket put(int id, Ticket ticket){
+    public Ticket put(int id, Ticket ticket){
         TicketHashMap.put(id , ticket);
         return ticket;
     }

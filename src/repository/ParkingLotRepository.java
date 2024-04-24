@@ -12,7 +12,7 @@ public class ParkingLotRepository {
         this.parkingLotHashMap = new HashMap<>();
     }
 
-    private ParkingLot get(int id){
+    public ParkingLot get(int id){
         if(parkingLotHashMap.containsKey(id)){
             return parkingLotHashMap.get(id);
         }
@@ -21,7 +21,7 @@ public class ParkingLotRepository {
         }
     }
 
-    private ParkingLot put(ParkingLot parkingLot){
+    public ParkingLot put(ParkingLot parkingLot){
         parkingLotHashMap.put(idCounter++, parkingLot);
         return parkingLot;
     }

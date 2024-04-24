@@ -11,11 +11,11 @@ public class VehicleRepository {
         VehicleHashMap = new HashMap<>();
     }
 
-    private Vehicle get(int id){
+    public Vehicle get(int id){
         return VehicleHashMap.get(id);
     }
 
-    private Vehicle put(int id, Vehicle vehicle){
+    public Vehicle put(int id, Vehicle vehicle){
         VehicleHashMap.put(id , vehicle);
         return vehicle;
     }

@@ -13,7 +13,7 @@ public class ParkingFloorRepository {
         ParkingFloorHashMap = new HashMap<>();
     }
 
-    private ParkingFloor get(int id){
+    public ParkingFloor get(int id){
         if(ParkingFloorHashMap.containsKey(id)){
             return ParkingFloorHashMap.get(id);
         }
@@ -22,7 +22,7 @@ public class ParkingFloorRepository {
         }
     }
 
-    private ParkingFloor put(ParkingFloor parkingFloor){
+    public ParkingFloor put(ParkingFloor parkingFloor){
         ParkingFloorHashMap.put(idCounter++, parkingFloor);
         return parkingFloor;
     }
