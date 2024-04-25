@@ -14,8 +14,8 @@ public class TicketRepository {
         return TicketHashMap.get(id);
     }
 
-    public Ticket put(int id, Ticket ticket){
-        TicketHashMap.put(id , ticket);
+    public Ticket put(Ticket ticket){
+        TicketHashMap.put(ticket.getId(), ticket);
         return ticket;
     }
 

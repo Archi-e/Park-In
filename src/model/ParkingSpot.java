@@ -40,4 +40,11 @@ public class ParkingSpot extends BaseModel{
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+    @Override
+    public String toString() {
+        return "ParkingSpot{" +
+                "spotNumber=" + spotNumber +
+                ", parkingSpotStatus=" + parkingSpotStatus;
+    }
 }

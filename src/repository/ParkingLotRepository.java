@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class ParkingLotRepository {
     private HashMap<Integer, ParkingLot> parkingLotHashMap;
-    private static int idCounter = 0;
+    private static int idCounter = 1;
 
     public ParkingLotRepository() {
         this.parkingLotHashMap = new HashMap<>();

@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 public class ParkingFloorRepository {
     private HashMap<Integer, ParkingFloor> ParkingFloorHashMap;
-    private static int idCounter = 0;
 
     public ParkingFloorRepository() {
         ParkingFloorHashMap = new HashMap<>();
@@ -23,7 +22,7 @@ public class ParkingFloorRepository {
     }
 
     public ParkingFloor put(ParkingFloor parkingFloor){
-        ParkingFloorHashMap.put(idCounter++, parkingFloor);
+        ParkingFloorHashMap.put(parkingFloor.getId(), parkingFloor);
         return parkingFloor;
     }
 

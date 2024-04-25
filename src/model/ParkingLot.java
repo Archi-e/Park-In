@@ -1,5 +1,6 @@
 package model;
 
+import model.enums.VehicleType;
 import service.billCalculationStartegy.BillCalculationStrategy;
 import service.spotAllocationStrategy.SpotAllocationStrategy;
 
@@ -11,7 +12,9 @@ public class ParkingLot extends BaseModel{
     private int capacity;
     private List<ParkingFloor> parkingFloorList;
     private List<ParkingSpot> parkingSpotList;
+    private List<VehicleType> supportedVehicleType;
     private SpotAllocationStrategy spotAllocationStrategy;
+
     private BillCalculationStrategy billCalculationStrategy;
 
     public String getName() {
@@ -49,6 +52,15 @@ public class ParkingLot extends BaseModel{
     public List<ParkingSpot> getParkingSpotList() {
         return parkingSpotList;
     }
+
+    public List<VehicleType> getSupportedVehicleType() {
+        return supportedVehicleType;
+    }
+
+    public void setSupportedVehicleType(List<VehicleType> supportedVehicleType) {
+        this.supportedVehicleType = supportedVehicleType;
+    }
+
 
     public void setParkingSpotList(List<ParkingSpot> parkingSpotList) {
         this.parkingSpotList = parkingSpotList;

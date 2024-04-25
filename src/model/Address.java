@@ -7,6 +7,14 @@ public class Address {
     private String country;
     private String zipcode;
 
+    public Address(String blockNumber, String lane_name, String city, String country, String zipcode) {
+        this.blockNumber = blockNumber;
+        this.lane_name = lane_name;
+        this.city = city;
+        this.country = country;
+        this.zipcode = zipcode;
+    }
+
     public String getBlock_number() {
         return blockNumber;
     }

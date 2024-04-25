@@ -22,7 +22,7 @@ public class GateRepository {
     }
 
     public Gate put( Gate gate){
-        GateHashMap.put(idCounter++ , gate);
+        GateHashMap.put(gate.getId(), gate);
         return gate;
     }
 

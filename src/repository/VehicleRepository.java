@@ -5,7 +5,7 @@ import model.Vehicle;
 import java.util.HashMap;
 
 public class VehicleRepository {
-    private HashMap<Integer, Vehicle> VehicleHashMap;
+    private HashMap<String, Vehicle> VehicleHashMap;
 
     public VehicleRepository() {
         VehicleHashMap = new HashMap<>();
@@ -15,8 +15,8 @@ public class VehicleRepository {
         return VehicleHashMap.get(id);
     }
 
-    public Vehicle put(int id, Vehicle vehicle){
-        VehicleHashMap.put(id , vehicle);
+    public Vehicle put(Vehicle vehicle){
+        VehicleHashMap.put(vehicle.getVehicle_number(),  vehicle);
         return vehicle;
     }
 

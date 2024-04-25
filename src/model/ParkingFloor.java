@@ -8,7 +8,8 @@ import java.util.List;
 public class ParkingFloor extends BaseModel{
     private int floorNumber;
     private ParkingFloorStatus parkingFloorStatus;
-    private List<Gate> gates;
+    private Gate extryGate;
+    private Gate exitGate;
     private List<ParkingSpot> parkingSpots;
 
     public int getFloorNumber() {
@@ -27,12 +28,20 @@ public class ParkingFloor extends BaseModel{
         this.parkingFloorStatus = parkingFloorStatus;
     }
 
-    public List<Gate> getGates() {
-        return gates;
+    public Gate getExtryGate() {
+        return extryGate;
     }
 
-    public void setGates(List<Gate> gates) {
-        this.gates = gates;
+    public void setExtryGate(Gate extryGate) {
+        this.extryGate = extryGate;
+    }
+
+    public Gate getExitGate() {
+        return exitGate;
+    }
+
+    public void setExitGate(Gate exitGate) {
+        this.exitGate = exitGate;
     }
 
     public List<ParkingSpot> getParkingSpots() {

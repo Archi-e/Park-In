@@ -6,6 +6,8 @@ import model.*;
 import model.enums.GateType;
 import repository.*;
 import service.spotAllocationStrategy.SpotAllocationStrategy;
+import service.spotAllocationStrategy.SpotAllocationStrategyFactory;
+import service.spotAllocationStrategy.SpotAllocationStrategyName;
 
 import java.time.LocalDateTime;
 
@@ -32,10 +34,11 @@ public class TicketService {
             throw new InvalidEntryGateException("Customer trying to enter from exit gate!");
         }
 
-        Vehicle newVehicle = vehicleRepository.get(vehicle.getId());
-        vehicleRepository.put(vehicle.getId(), newVehicle);
+        //Vehicle newVehicle = vehicleRepository.get(vehicle.getId());
+        vehicleRepository.put(vehicle);
 
-        ParkingSpot parkingSpot = spotAllocationStrategy.assignSpot(parkingLot, vehicle);
+        ParkingSpot parkingSpot = SpotAllocationStrategyFactory.getSpotAllocationStrategy(SpotAllocationStrategyName.ORDERED)
+                .assignSpot(parkingLot, vehicle);
         if(parkingSpot == null){
             throw new NoSpotAvailableException("Sorry, no spots are available at the moment");
         }
@@ -44,6 +47,7 @@ public class TicketService {
         ticket.setEntryTime(LocalDateTime.now());
         ticket.setVehicle(vehicle);
         ticket.setParkingSpot(parkingSpot);
+        ticketRepository.put(ticket);
         return ticket;
     }
 }

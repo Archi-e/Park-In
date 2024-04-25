@@ -4,6 +4,10 @@ public class Operator extends BaseModel{
     private String name;
     private String contactNo;
 
+    public Operator(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -18,5 +22,12 @@ public class Operator extends BaseModel{
 
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
+    }
+
+    @Override
+    public String toString() {
+        return "Operator{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

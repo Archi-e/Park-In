@@ -16,7 +16,7 @@ public class TicketController {
     }
 
     public Ticket generateTicket(int parkingLotId,  int gateId, Vehicle vehicle){
-        ticketService.generateTicket(parkingLotId, vehicle, gateId);
-        return null;
+        Ticket ticket = ticketService.generateTicket(parkingLotId, vehicle, gateId);
+        return ticket;
     }
 }
