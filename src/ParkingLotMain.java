@@ -1,8 +1,10 @@
+import controller.BillController;
 import controller.InitController;
 import controller.TicketController;
 import model.*;
 import model.enums.VehicleType;
 import repository.*;
+import service.BillService;
 import service.InitService;
 import service.TicketService;
 
@@ -29,6 +31,9 @@ public class ParkingLotMain {
         TicketService ticketService = new TicketService(ticketRepository, gateRepository, parkingLotRepository, new VehicleRepository());
         TicketController ticketController = new TicketController(ticketService);
 
+        BillService billService = new BillService();
+        BillController billController = new BillController(billService);
+
         InitController initController = new InitController(initService);
         System.out.println("************** PARKING LOT DATA INITIALISATION - START **************");
         initController.init();
@@ -37,16 +42,19 @@ public class ParkingLotMain {
         System.out.println();
         System.out.println("Hey, Welcome to Park-In");
 
-        System.out.println("Please enter the option:");
-        System.out.println("1: Enter Parking Lot");
-        System.out.println("2: Exit Parking Lot");
-        System.out.println("3: Exit");
 
-        int option = sc.nextInt();
 
         while(true){
-            Vehicle vehicle = new Vehicle();
+            System.out.println("Please enter the option:");
+            System.out.println("1: Enter Parking Lot");
+            System.out.println("2: Exit Parking Lot");
+            System.out.println("3: Exit");
+
+            int option = sc.nextInt();
+
+
             if(option == 1){
+                Vehicle vehicle = new Vehicle();
                 System.out.println("Please enter the vehicle number:");
                 sc.nextLine();
                 String vehicleNumber = sc.nextLine();
@@ -73,16 +81,19 @@ public class ParkingLotMain {
                 int gateId = sc.nextInt();
 
                 Ticket ticket = ticketController.generateTicket(parkingLotId, gateId, vehicle);
-
-                System.out.println("Ticket Details: " + ticket.toString());
-
-
+                System.out.println(ticket.toString());
 
             }
             else if(option == 2){
-                System.out.println("need to complete this");
+                System.out.println("Please enter Ticket Id: ");
+                int ticketId = sc.nextInt();
+                System.out.println("Please enter exit gate number: ");
+                int gateNumber = sc.nextInt();
+                Bill bill = billController.getBill(ticketRepository.get(ticketId), gateRepository.get(gateNumber));
+                System.out.println("Bill Details: "+bill.toString());
+                System.out.println();
             }
-            else{
+            else if(option == 3){
                 System.out.println("Exiting the system");
                 break;
             }

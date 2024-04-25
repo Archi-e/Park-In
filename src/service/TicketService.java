@@ -42,7 +42,7 @@ public class TicketService {
         if(parkingSpot == null){
             throw new NoSpotAvailableException("Sorry, no spots are available at the moment");
         }
-
+        ticket.setId(Math.abs(vehicle.getVehicle_number().hashCode()));
         ticket.setEntryGate(gate);
         ticket.setEntryTime(LocalDateTime.now());
         ticket.setVehicle(vehicle);

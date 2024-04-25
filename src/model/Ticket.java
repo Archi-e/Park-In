@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Ticket extends BaseModel{
     private LocalDateTime entryTime;
@@ -42,12 +43,15 @@ public class Ticket extends BaseModel{
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "entryTime=" + entryTime +
-                ", entryGate=" + entryGate.toString() +
-                ", vehicle=" + vehicle.toString() +
-                ", parkingSpot=" + parkingSpot.toString() +
-                '}';
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return String.format("************ TICKET DETAILS: ************\n" +
+                        "Ticket ID: %d\n" +
+                        "Entry Time: %s\n" +
+                        "Entry Gate: %d\n" +
+                        "Vehicle Number: %s\n" +
+                        "Parking Spot: %d\n",
+                this.getId(), entryTime.format(formatter), entryGate.getGateNumber(), vehicle.getVehicle_number(), parkingSpot.getSpotNumber());
+
     }
 
 }
