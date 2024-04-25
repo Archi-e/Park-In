@@ -4,6 +4,7 @@ import model.Bill;
 import model.Gate;
 import model.Ticket;
 import model.enums.BillStatus;
+import model.enums.ParkingSpotStatus;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -13,6 +14,7 @@ public class SimpleBillCalculationStrategy implements BillCalculationStrategy{
     @Override
     public Bill generateBill(Ticket ticket, Gate exitGate) {
         LocalDateTime entryTime = ticket.getEntryTime();
+        ticket.getParkingSpot().setParkingSpotStatus(ParkingSpotStatus.AVAILABLE);
         LocalDateTime exitTime = LocalDateTime.now();
         long noOfSeconds = ChronoUnit.SECONDS.between(entryTime, exitTime);
         double amount = 5 * noOfSeconds;
